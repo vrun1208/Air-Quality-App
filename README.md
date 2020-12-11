@@ -11,5 +11,9 @@ This App have an option to search aqi index of any city around the world.
 ## Deployment
 A running version of program is [Here](https://find-aqi.netlify.app/)
 
+## To-Do-list
+* Dark Mode:D
+* Show more details about Air Quality.
+
 ## Status
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4b536f8f-9234-4c82-8aba-880bb157af2a/deploy-status)](https://app.netlify.com/sites/find-aqi/deploys)
