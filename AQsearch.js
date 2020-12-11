@@ -45,7 +45,7 @@ export async function getSearchData() {
     if (aqis.length != 0) {
         aqis.map(element => {
             const aqi = element.aqi;
-            const sTime = new Date(element.time.stime);
+            const sTime = new Date((element.time.stime).replace(/-/g, '/'));
             const sTimeup = sTime.toLocaleTimeString('en-US');
             html += `<div class="${getCategorisedData(aqi).className}">
                                 <div class="header">
