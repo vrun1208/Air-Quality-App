@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>An App which does Nothing</title>
+</head>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+</style>
+
+<body>
+    <h1 id="totalExp"></h1>
+    <input type="text" id="addamount">
+    <input type="text" id="textdesc">
+    <button id="cntr">+</button>
+    <div id="expenseTable"></div>
+    <script>
+        // get the input element
+        const inputdesc = document.querySelector("#textdesc");
+
+        const inputelement = document.querySelector("#addamount");
+
+        const headingEl = document.querySelector("#totalExp");
+
+        const expenseTable = document.querySelector("#expenseTable");
+        let totalExpense = 0;
+
+        headingEl.textContent=totalExpense;
+
+        const allExpense = []
+
+        function addf(){
+            const items = {}
+
+            const textamount = inputelement.value;
+            // set value of input element...
+            const textdescEl = inputdesc.value;
+            // console.log({ textdescEl, textamount });
+
+            items.desc = textdescEl;
+            items.amt=textamount;
+
+            allExpense.push(items);
+
+            // console.clear();
+            // console.table(allExpense);
+
+            const convertTextToInteger = parseInt(textamount, 10);
+
+            totalExpense = totalExpense + convertTextToInteger;
+            
+
+            const shoetext= `your amount is: ${totalExpense}`
+            headingEl.textContent=shoetext;
+
+            const allExpenseHtml = allExpense.map(items => {
+                return `<div> ${items.amt} >> ${items.desc} </div>`
+            });
+            console.log(allExpenseHtml);
+            const joinAllExpenseHtml = allExpenseHtml.join("");
+            console.log(joinAllExpenseHtml);
+            expenseTable.innerHTML = joinAllExpenseHtml;
+
+        }
+        const element = document.querySelector("#cntr");
+        // console.log(element);
+        element.addEventListener("click", addf, false);      
+     </script>
+</body>
+</html>
