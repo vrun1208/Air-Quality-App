@@ -19,7 +19,7 @@ function currentTime(timex) {
 
 //using async-await here...
 async function getdata() {
-    const response = await fetch("http://api.airvisual.com/v2/nearest_city?key=" + api_key);
+    const response = await fetch("https://api.airvisual.com/v2/nearest_city?key=" + api_key);
     const json = await response.json();
     const aqi = json.data.current.pollution.aqius;
     //aqi[0]['aqius'];
