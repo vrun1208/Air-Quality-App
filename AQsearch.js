@@ -1,8 +1,8 @@
-
+globalThis.api_key_two = "db9c36870967334b792cbdecc9527b5b4c834a90";
 export async function getSearchData() {
     const element = document.querySelector("#getInput").value;
     console.log(element);
-    const url = await fetch("https://api.waqi.info/search/?token=" + api_key + "&keyword=" + element);
+    const url = await fetch("https://api.waqi.info/search/?token=" + api_key_two + "&keyword=" + element);
     const search = await url.json();
     const aqis = search.data;
 

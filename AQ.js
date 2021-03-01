@@ -2,7 +2,8 @@ import { getSearchData } from './AQsearch.js';
 
 
 //key for api...
-globalThis.api_key = "db9c36870967334b792cbdecc9527b5b4c834a90";
+//updated api
+globalThis.api_key = "eabcb417-9399-4813-84d3-645fd0e82865";
 
 //fuction to get Day name....
 function getDayName(dateStr, locale) {
@@ -18,14 +19,16 @@ function currentTime(timex) {
 
 //using async-await here...
 async function getdata() {
-    const response = await fetch("https://api.waqi.info/feed/here/?token=" + api_key);
+    const response = await fetch("http://api.airvisual.com/v2/nearest_city?key=" + api_key);
     const json = await response.json();
-    const aqi = json.data.aqi;
-    const city = json.data.city.name;
-    const UpdatedTime = new Date(json.data.time.s);
+    const aqi = json.data.current.pollution.aqius;
+    //aqi[0]['aqius'];
+    console.log(aqi);
+    const city = json.data.city;
+    const UpdatedTime = new Date(json.data.current.weather.ts);
     const uptime = UpdatedTime.toLocaleTimeString('en-US');
-    const temp = json.data.iaqi.t.v;
-    const wind = json.data.iaqi.w.v;
+    const temp = json.data.current.weather.tp;
+    const wind = json.data.current.weather.ws;
 
     //using this to categorize data to respective class...
     const getCategorisedData = aqi => {
